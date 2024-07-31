@@ -3,9 +3,9 @@
 <%= form_with model: @book, local: true do |f| %>
   <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
-  <h4>ショップ名</h4>
+  <h4>title</h4>
   <%= f.text_field :title %>
-  <h4>説明</h4>
+  <h4>opinion</h4>
   <%= f.text_area :body %>
   <%= f.submit '投稿' %>
 <% end %>
@@ -14,8 +14,7 @@
 <% @books.each do |book| %>
   <div>
     <%= image_tag book.get_image %>
-    <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
-    <p>title：<%= book.title %></p>
+    <p>投稿ユーザー画像:   <%= image_tag(book.user.get_profile_image) %></p>
     <p>body：<%= book.body %></p>
     <p>ユーザーネーム：<%= book.user.name %></p>
   </div>
