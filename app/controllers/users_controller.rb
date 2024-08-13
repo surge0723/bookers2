@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile_image = @user.profile_image
+    @book = Book.new
+    @books = current_user.books
   end
 
   def edit
@@ -9,12 +11,10 @@ class UsersController < ApplicationController
   end
   
   def index
-def index
-  @users = User.all         # 全てのユーザー
-  @book = Book.new          # 新しい本（フォーム用）
-  @books = Book.all         # 全ての本
-  @user = current_user      # ログインしているユーザー（基本自分）
-end
+    @users = User.all         # 全てのユーザー
+    @books = Book.all
+    @book = Book.new
+    @user = current_user
   end
     
   def update
