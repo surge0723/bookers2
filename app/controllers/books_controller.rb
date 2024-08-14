@@ -43,6 +43,10 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
   
+  def get_image
+    image.attached? ? image : 'default_image.png'  # Active Storageの場合
+  end
+  
   private
 
   def book_params

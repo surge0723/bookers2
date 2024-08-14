@@ -6,3 +6,4 @@ class Book < ApplicationRecord
      
 
 end
+

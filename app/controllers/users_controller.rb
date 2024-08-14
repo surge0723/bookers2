@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @profile_image = @user.profile_image
     @book = Book.new
-    @books = current_user.books
+    @books = @user.books
   end
 
   def edit
@@ -22,7 +22,10 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user)
   end
-
+  
+  def get_image
+    image.attached? ? image : 'default_image.png'  # Active Storageの場合
+  end
   private
 
   def user_params
