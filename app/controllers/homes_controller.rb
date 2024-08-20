@@ -6,7 +6,7 @@ class HomesController < ApplicationController
   end
 
   def after_sign_in_path_for(resource)
-    books_path
+      books_path
   end
   
   

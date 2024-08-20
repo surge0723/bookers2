@@ -7,12 +7,16 @@
         <table class="table table-hover table-inverse">
             <tbody>
                 <tr>
-                  <td><%=image_tag(@book.user.get_profile_image) %></td>
-                  <td><%=@book.title %></td>  
+                  <td><%=image_tag(@book.user.get_profile_image) %>
+                  <br>
+                  <%= link_to @user2.name, user_path(@user.id) %>
+                  </br>
+                  </td>
+                  <td><%= link_to @book.title, book_path(@book.id) %></td>
                   <td><%=@book.body %></td>
                   <% if @book.user == current_user %>
-                  <td><%=link_to "edit",edit_book_path(@book) %></td>
-                  <td><%= link_to "delete", book_path(@book), method: :delete %></td>
+                  <td><a class="btn btn-sm btn-success" href="<%= edit_book_path(@book) %>">Edit</a></td>
+                  <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger " rel="nofollow" data-method="delete" href="<%=book_path(@book) %>">Destroy</a></td>
                   <% end %>
                 </tr>
             </tbody>

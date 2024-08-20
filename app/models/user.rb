@@ -6,7 +6,8 @@ class User < ApplicationRecord
          
          has_one_attached :profile_image
          has_many :books
-      
+        
+        validates:name,length: { minimum: 2 }
     
       def get_profile_image(width = 100, height = 100)
            file_path = Rails.root.join('app/assets/images/no_image.jpg')
