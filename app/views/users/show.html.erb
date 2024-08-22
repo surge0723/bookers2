@@ -1,7 +1,7 @@
 <main>
   <div class="container">
   <div class="row">
-    <%= render 'leftuser',user:@user,book:@book %>
+    <%= render 'books/left',user:@user,book:@book %>
     
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -17,7 +17,7 @@
             <tbody>
               <tr>
                 <td>
-                  <%= link_to book_path(book.id) do %>
+                  <%= link_to user_path(book.user.id) do %>
                    <% if book.image %>
                     <%= image_tag(book.user.get_profile_image) %>
                    <% else %>

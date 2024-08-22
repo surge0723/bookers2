@@ -12,11 +12,8 @@
         <th><%= user.introduction %></th>
     </tbody>
   </table>
-  
-  <% if user == current_user %>
     <a class="btn btn-outline-secondary btn-block" href="<%= edit_user_path(user) %>"><i class="fa-solid fa-user-gear"></i></a>
-  <% end %>
-    <h2>New Book</h2>
+    <h2>New book</h2>
         <%= form_with model: book, local: true do |f| %>
     <h4>title</h4>
         <%= f.text_field :title %>
